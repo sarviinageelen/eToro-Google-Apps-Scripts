@@ -5,12 +5,13 @@
 // --------------------------------------------------------------------------------------------------
  
 // Custom menu.
-function onOpen() {
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('eToro')
-      .addItem('Get Stock Data','calleToroAPI')
-      .addToUi();
-}
+// function onOpen() {
+//   var ui = SpreadsheetApp.getUi();
+//   ui.createMenu('eToro')
+//       .addItem('Get Stock Data','calleToroAPI')     
+//       .addItem('Clear Sheet','clearSheet')
+//       .addToUi();
+// }
 
 
 // Function to call the eToro API.
@@ -35,13 +36,28 @@ function calleToroAPI() {
   var output = []
   
   results.forEach(function(elem) {
+    //var Date = '=LEFT("' + elem["FromDate"] + '",10)';
     output.push([elem["FromDate"],elem["Open"],elem["High"],elem["Low"],elem["Close"]]);
   });
 
   // clear any previous content
-  sheet.getRange(1, 1, 1000, 5).clearContent();
+  var range = sheet.getRange("A2:E");
+  range.clearContent();
   
   // paste in the values
-  sheet.getRange(1, 1, 1000, 5).setValues(output);
+  sheet.getRange(sheet.getLastRow() + 1, 1, output.length, output[0].length).setValues(output);
+
 
 }
+
+
+// Function to clear the sheet.
+function clearSheet() {
+  
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var sheet = ss.getSheetByName("Temp");
+  var range = sheet.getRange("A2:Z");
+  range.clearContent();
+
+}
+
