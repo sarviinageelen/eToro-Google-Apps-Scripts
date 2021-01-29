@@ -7,7 +7,7 @@
 // Custom menu.
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
-  ui.createMenu('Custom eToro Menu')
+  ui.createMenu('eToro')
       .addItem('Get Stock Data','calleToroAPI')
       .addToUi();
 }
