@@ -1,3 +1,5 @@
+// API - https://candle.etoro.com/candles/desc.json/OneDay/1000/1155
+
 // --------------------------------------------------------------------------------------------------
 //
 // eToro Daily Stock Data in Google Sheets
