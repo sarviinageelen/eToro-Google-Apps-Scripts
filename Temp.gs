@@ -4,16 +4,16 @@
 //
 // --------------------------------------------------------------------------------------------------
  
-// custom menu
+// Custom menu.
 function onOpen() {
   var ui = SpreadsheetApp.getUi();
   ui.createMenu('Custom eToro Menu')
-      .addItem('Get Stock Data','displayStockData')
+      .addItem('Get Stock Data','calleToroAPI')
       .addToUi();
 }
 
 
-// function to call eToro API
+// Function to call the eToro API.
 function calleToroAPI() {
 
   //Get the active Spreadsheet.
